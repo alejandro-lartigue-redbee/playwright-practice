@@ -1,5 +1,18 @@
 import { test, expect } from './fixtures/playground-pages';
 
+const richestPersonRanking = [
+   { rank: 1, name: "Jeff Bezos" },
+   { rank: 2, name: "Bill Gates" },
+   { rank: 3, name: "Warren Buffet" },
+   { rank: 4, name: "Bernard Arnault" },
+   { rank: 5, name: "Carlos Slim Helu" },
+   { rank: 6, name: "Amancio Ortega" },
+   { rank: 7, name: "Larry Ellison" },
+   { rank: 8, name: "Mark Zuckerberg" },
+   { rank: 9, name: "Michael Bloomberg" },
+   { rank: 10, name: "Larry Page" }
+];
+
 test.describe('Sortable List', () => {
 
    test.beforeEach(async ({ sortableListPage }) => {
@@ -8,19 +21,6 @@ test.describe('Sortable List', () => {
    });
 
    test("Should have all the list green text when the order is right", async ({ sortableListPage }) => {
-
-      const richestPersonRanking = [
-         { rank: 1, name: "Jeff Bezos" },
-         { rank: 2, name: "Bill Gates" },
-         { rank: 3, name: "Warren Buffet" },
-         { rank: 4, name: "Bernard Arnault" },
-         { rank: 5, name: "Carlos Slim Helu" },
-         { rank: 6, name: "Amancio Ortega" },
-         { rank: 7, name: "Larry Ellison" },
-         { rank: 8, name: "Mark Zuckerberg" },
-         { rank: 9, name: "Michael Bloomberg" },
-         { rank: 10, name: "Larry Page" }
-      ];
 
       await sortableListPage.dragAndDrop(richestPersonRanking[0].name, richestPersonRanking[0].rank);
       await sortableListPage.dragAndDrop(richestPersonRanking[1].name, richestPersonRanking[1].rank);
