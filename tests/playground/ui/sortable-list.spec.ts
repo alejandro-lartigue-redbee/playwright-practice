@@ -4,6 +4,7 @@ test.describe('Sortable List', () => {
 
    test.beforeEach(async ({ sortableListPage }) => {
       await sortableListPage.goto();
+      await sortableListPage.zoomOut();
    });
 
    test("Should have all the list green text when the order is right", async ({ sortableListPage }) => {
