@@ -82,7 +82,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[1].rate - 1);
+            await starsRatingWidgetPage.pressStar1();
 
             await expect(starsRatingWidgetPage.slideImg).toHaveCSS("margin-top", expectValues[1].marginTopImage);
 
@@ -92,7 +92,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[1].rate - 1);
+            await starsRatingWidgetPage.pressStar1();
 
             expect(await starsRatingWidgetPage.getCurrentText()).toEqual(expectValues[1].text);
 
@@ -102,7 +102,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[1].rate - 1);
+            await starsRatingWidgetPage.pressStar1();
 
             expect(await starsRatingWidgetPage.getCurrentNumb()).toEqual(expectValues[1].number);
 
@@ -115,7 +115,7 @@ test.describe('Stars Rating Widget', () => {
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[2].rate - 1);
+            await starsRatingWidgetPage.pressStar2();
 
             await expect(starsRatingWidgetPage.slideImg).toHaveCSS("margin-top", expectValues[2].marginTopImage);
         });
@@ -125,7 +125,7 @@ test.describe('Stars Rating Widget', () => {
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[2].rate - 1);
+            await starsRatingWidgetPage.pressStar2();
 
             expect(await starsRatingWidgetPage.getCurrentText()).toEqual(expectValues[2].text);
         });
@@ -135,7 +135,7 @@ test.describe('Stars Rating Widget', () => {
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[2].rate - 1);
+            await starsRatingWidgetPage.pressStar2();
 
             expect(await starsRatingWidgetPage.getCurrentNumb()).toEqual(expectValues[2].number);
         });
@@ -146,7 +146,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[3].rate - 1);
+            await starsRatingWidgetPage.pressStar3();
 
             await expect(starsRatingWidgetPage.slideImg).toHaveCSS("margin-top", expectValues[3].marginTopImage);
         });
@@ -155,7 +155,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[3].rate - 1);
+            await starsRatingWidgetPage.pressStar3();
 
             expect(await starsRatingWidgetPage.getCurrentText()).toEqual(expectValues[3].text);
         });
@@ -164,7 +164,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[3].rate - 1);
+            await starsRatingWidgetPage.pressStar3();
 
             expect(await starsRatingWidgetPage.getCurrentNumb()).toEqual(expectValues[3].number);
         });
@@ -175,7 +175,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[4].rate - 1);
+            await starsRatingWidgetPage.pressStar4();
 
             await expect(starsRatingWidgetPage.slideImg).toHaveCSS("margin-top", expectValues[4].marginTopImage);
         });
@@ -184,7 +184,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[4].rate - 1);
+            await starsRatingWidgetPage.pressStar4();
 
             expect(await starsRatingWidgetPage.getCurrentText()).toEqual(expectValues[4].text);
         });
@@ -193,7 +193,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[4].rate - 1);
+            await starsRatingWidgetPage.pressStar4();
 
             expect(await starsRatingWidgetPage.getCurrentNumb()).toEqual(expectValues[4].number);
 
@@ -205,7 +205,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[5].rate - 1);
+            await starsRatingWidgetPage.pressStar5();
 
             await expect(starsRatingWidgetPage.slideImg).toHaveCSS("margin-top", expectValues[5].marginTopImage);
 
@@ -215,7 +215,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[5].rate - 1);
+            await starsRatingWidgetPage.pressStar5();
 
             expect(await starsRatingWidgetPage.getCurrentText()).toEqual(expectValues[5].text);
         });
@@ -224,7 +224,7 @@ test.describe('Stars Rating Widget', () => {
 
             await expect(starsRatingWidgetPage.mainContent).toBeVisible();
 
-            await starsRatingWidgetPage.pressLabelStars(expectValues[5].rate - 1);
+            await starsRatingWidgetPage.pressStar5();
 
             expect(await starsRatingWidgetPage.getCurrentNumb()).toEqual(expectValues[5].number);
         });
