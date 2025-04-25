@@ -17,10 +17,6 @@ export class UploadFilePage  {
     await this.page.goto('/apps/upload');
   }
 
-  //async pressbuttonSelectImageFile() {
-  //  await this.inputFile.click();
-  //}
-
   async uploadFile(filePath: string) {
     await this.inputFile.setInputFiles(filePath);
   }
