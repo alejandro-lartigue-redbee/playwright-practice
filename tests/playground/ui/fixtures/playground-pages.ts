@@ -4,6 +4,8 @@ import { test as baseTest } from '@playwright/test';
 import { VerifyAccountPage } from '../pages/verify-account-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
+import { NewTabPage } from '../pages/new-tab-page';
+import { NewPagePage } from '../pages/new-page-page';
 
 type PlaygroundPages = {
     verifyAccountPage: VerifyAccountPage;
@@ -11,6 +13,8 @@ type PlaygroundPages = {
     mouseHoverPage: MouseHoverPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
+    newTabPage: NewTabPage;
+    newPagePage: NewPagePage
 }
 
 export const test = baseTest.extend<PlaygroundPages>({
@@ -29,6 +33,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
     },
+    newTabPage: async ({ page }, use) => {
+        await use(new NewTabPage(page));
+    }
 });
 
 export { expect } from '@playwright/test';
