@@ -5,6 +5,8 @@ import { VerifyAccountPage } from '../pages/verify-account-page';
 import { SortableListPage } from '../pages/sortable-list-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
+import { UploadFilePage } from '../pages/upload-file-page';
+import { RedirectChainPage } from '../pages/redirect-chain-page';
 
 type PlaygroundPages = {
     verifyAccountPage: VerifyAccountPage;
@@ -13,6 +15,8 @@ type PlaygroundPages = {
     sortableListPage: SortableListPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
+    uploadFilePage: UploadFilePage;
+    redirectChainPage: RedirectChainPage;
 }
 
 export const test = baseTest.extend<PlaygroundPages>({
@@ -34,6 +38,12 @@ export const test = baseTest.extend<PlaygroundPages>({
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
     },
+    uploadFilePage: async ({ page }, use) => {
+        await use(new UploadFilePage(page));
+    },
+    redirectChainPage: async ({ page }, use) => {
+        await use(new RedirectChainPage(page));
+    }
 });
 
 export { expect } from '@playwright/test';
