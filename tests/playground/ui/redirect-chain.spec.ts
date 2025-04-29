@@ -42,4 +42,9 @@ test.describe('Redirect chain', () => {
         expect(redirectChain[4]).toContain("/apps/redirect/sixth");
         expect(redirectChain[5]).toContain("/apps/redirect/last");
     });
+
+    test.afterEach(async ({ redirectChainPage }) => {
+        // Remove the listener to avoid memory leaks.
+        redirectChainPage.page.removeAllListeners('response');
+    });
 });
