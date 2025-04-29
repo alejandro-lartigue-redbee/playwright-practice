@@ -8,25 +8,27 @@ test.describe('Redirect chain', () => {
     test.beforeEach(async ({ redirectChainPage }) => {
         const res = await redirectChainPage.goto();
         if (!res) {
-            throw new Error('No se pudo navegar a /apps/redirect');
+            throw new Error('Error navigating to URL app (/apps/redirect)');
         }
         response = res;
     });
 
-    test('Should display correct page pages after redirecting', async ({ redirectChainPage }) => {
+    test('Should display correct pages after redirecting', async ({ redirectChainPage }) => {
 
         const redirectChain: string[] = [];
 
-        // Listen for the response event to capture the redirect chain.
-        // Use this instead of 'redirectedFrom()' (https://playwright.dev/docs/api/class-request#request-redirected-from) 
+        // Add listen the responses event to capture the redirect chain.
+        // Used this instead of 'redirectedFrom()' (https://playwright.dev/docs/api/class-request#request-redirected-from) 
         redirectChainPage.page.on('response', async (response) => {
-            if (response.url().includes('/apps/redirect/') && response.url().includes('.html')) {
+            // Check if the response URL matches the redirect pattern '/apps/redirect/*.html'.
+            if (/\/apps\/redirect\/.*\.html/.test(response.url())) {
                 redirectChain.push(response.url());
             }
         });
 
         await redirectChainPage.clickButtonStartRedirection();
 
+        // It waits up to 10 seconds for the last page to load.
         await redirectChainPage.page.waitForURL('**/apps/redirect/last', { timeout: 10000 });
 
         expect(await redirectChainPage.getTitle()).toContain('Last Page');
