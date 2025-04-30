@@ -32,15 +32,16 @@ test.describe('Redirect chain', () => {
         await redirectChainPage.page.waitForURL('**/apps/redirect/last', { timeout: 10000 });
 
         expect(await redirectChainPage.getTitle()).toContain('Last Page');
-        expect(await redirectChainPage.getUrl()).toContain("/apps/redirect/last");
+        expect(await redirectChainPage.getUrl()).toContain(`${process.env.BASE_URL}apps/redirect/last`);
         expect(await redirectChainPage.getInfoOfPage()).toContain("Welcome to the Last Page");
         expect(redirectChain.length).toBe(6);
-        expect(redirectChain[0]).toContain("/apps/redirect/second");
-        expect(redirectChain[1]).toContain("/apps/redirect/third");
-        expect(redirectChain[2]).toContain("/apps/redirect/fourth");
-        expect(redirectChain[3]).toContain("/apps/redirect/fifth");
-        expect(redirectChain[4]).toContain("/apps/redirect/sixth");
-        expect(redirectChain[5]).toContain("/apps/redirect/last");
+        expect(redirectChain[0]).toEqual(`${process.env.BASE_URL}apps/redirect/second.html`);
+        expect(redirectChain[1]).toEqual(`${process.env.BASE_URL}apps/redirect/third.html`);
+        expect(redirectChain[2]).toEqual(`${process.env.BASE_URL}apps/redirect/fourth.html`);
+        expect(redirectChain[3]).toEqual(`${process.env.BASE_URL}apps/redirect/fifth.html`);
+        expect(redirectChain[4]).toEqual(`${process.env.BASE_URL}apps/redirect/sixth.html`);
+        expect(redirectChain[5]).toEqual(`${process.env.BASE_URL}apps/redirect/last.html`);
+
     });
 
     test.afterEach(async ({ redirectChainPage }) => {
