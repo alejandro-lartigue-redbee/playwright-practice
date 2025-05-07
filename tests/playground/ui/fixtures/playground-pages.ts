@@ -6,6 +6,7 @@ import { StarsRatingWidgetPage } from '../pages/stars-rating-widget-page';
 import { SortableListPage } from '../pages/sortable-list-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
+import { NestedIframePage } from '../pages/nested-iframe-page';
 
 type PlaygroundPages = {
     verifyAccountPage: VerifyAccountPage;
@@ -15,6 +16,7 @@ type PlaygroundPages = {
     sortableListPage: SortableListPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
+    nestedIframePage: NestedIframePage;
 }
 
 export const test = baseTest.extend<PlaygroundPages>({
@@ -38,6 +40,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
+    },
+    nestedIframePage: async ({ page }, use) => {
+        await use(new NestedIframePage(page));
     },
 });
 
