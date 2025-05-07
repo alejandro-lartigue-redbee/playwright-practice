@@ -1,4 +1,3 @@
-import { VerifyAccountPage } from './pages/verify-account-page';
 import { test, expect } from './fixtures/playground-pages';
 test.describe('Verify Account', () => {
     test.beforeEach(async ({ verifyAccountPage }) => {
