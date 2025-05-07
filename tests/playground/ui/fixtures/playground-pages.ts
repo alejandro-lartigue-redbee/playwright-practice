@@ -2,19 +2,23 @@ import { DynamicTablePage } from '../pages/dynamic-table-page';
 import { MouseHoverPage } from '../pages/mouse-hover-page';
 import { test as baseTest } from '@playwright/test';
 import { VerifyAccountPage } from '../pages/verify-account-page';
+import { StarsRatingWidgetPage } from '../pages/stars-rating-widget-page';
 import { SortableListPage } from '../pages/sortable-list-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
 import { UploadFilePage } from '../pages/upload-file-page';
+import { NestedIframePage } from '../pages/nested-iframe-page';
 
 type PlaygroundPages = {
     verifyAccountPage: VerifyAccountPage;
     dynamicTablePage: DynamicTablePage;
     mouseHoverPage: MouseHoverPage;
+    starsRatingWidgetPage: StarsRatingWidgetPage;
     sortableListPage: SortableListPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
     uploadFilePage: UploadFilePage;
+    nestedIframePage: NestedIframePage;
 }
 
 export const test = baseTest.extend<PlaygroundPages>({
@@ -27,6 +31,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     mouseHoverPage: async ({ page }, use) => {
         await use(new MouseHoverPage(page));
     },
+    starsRatingWidgetPage: async ({ page }, use) => {
+        await use(new StarsRatingWidgetPage(page));
+    },    
     sortableListPage: async ({ page }, use) => {
         await use(new SortableListPage(page));
     },
@@ -35,6 +42,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
+    },
+    nestedIframePage: async ({ page }, use) => {
+        await use(new NestedIframePage(page));
     },
     uploadFilePage: async ({ page }, use) => {
         await use(new UploadFilePage(page));
