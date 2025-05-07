@@ -34,7 +34,7 @@ test.describe('Nested Iframe', () => {
       // it's a context for locating elements inside the iframe.
 
       test('FrameLocator - Should display "Click Me" button', async ({ nestedIframePage }) => {
-         await expect(nestedIframePage.buttonClickMe_byLocator).toBeVisible();
+         await expect(nestedIframePage.buttonClickMe_byFrameLocator).toBeVisible();
       });
 
       test('FrameLocator - After click in "Click Me", should display success message', async ({ nestedIframePage }) => {
