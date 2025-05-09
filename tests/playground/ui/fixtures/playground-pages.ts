@@ -6,6 +6,8 @@ import { StarsRatingWidgetPage } from '../pages/stars-rating-widget-page';
 import { SortableListPage } from '../pages/sortable-list-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
+import { UploadFilePage } from '../pages/upload-file-page';
+import { RedirectChainPage } from '../pages/redirect-chain-page';
 import { NewTabPage } from '../pages/new-tab-page';
 import { NewPagePage } from '../pages/new-page-page';
 import { NestedIframePage } from '../pages/nested-iframe-page';
@@ -18,6 +20,8 @@ type PlaygroundPages = {
     sortableListPage: SortableListPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
+    uploadFilePage: UploadFilePage;
+    redirectChainPage: RedirectChainPage;
     newTabPage: NewTabPage;
     newPagePage: NewPagePage;
     nestedIframePage: NestedIframePage;
@@ -44,6 +48,12 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
+    },
+    uploadFilePage: async ({ page }, use) => {
+        await use(new UploadFilePage(page));
+    },
+    redirectChainPage: async ({ page }, use) => {
+        await use(new RedirectChainPage(page));
     },
     newTabPage: async ({ page }, use) => {
         await use(new NewTabPage(page));
