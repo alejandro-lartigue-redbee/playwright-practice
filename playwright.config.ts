@@ -34,7 +34,7 @@ export default defineConfig({
     // Capture screenshot after each test failure.
     screenshot: 'only-on-failure',
     //viewport: { width: 1920, height: 1080 }
-    video: 'on',
+    video: 'off',
   },
   expect: {
     toHaveScreenshot: { maxDiffPixelRatio: 0.02} // 0.02% of the image size
