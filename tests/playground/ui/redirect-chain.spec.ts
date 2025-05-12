@@ -19,7 +19,6 @@ test.describe('Redirect chain', () => {
     test('Should display correct pages after redirecting', async ({ redirectChainPage }, testInfo) => {
 
         const redirectChain: string[] = [];
-
         // Add listen the responses event to capture the redirect chain.
         // Used this instead of 'redirectedFrom()' (https://playwright.dev/docs/api/class-request#request-redirected-from)
         redirectChainPage.page.on('response', async (response) => {
@@ -34,19 +33,27 @@ test.describe('Redirect chain', () => {
         // It waits up to 10 seconds for the last page to load.
         await redirectChainPage.page.waitForURL('**/apps/redirect/last', { timeout: 10000 });
 
-        expect(await redirectChainPage.getTitle()).toContain('Last Page');
-        expect(await redirectChainPage.getUrl()).toContain(`${process.env.BASE_URL}apps/redirect/last`);
-        expect(await redirectChainPage.getInfoOfPage()).toContain("Welcome to the Last Page");
+        await test.step('Check redirecting by Last Page', async () => {
+   
+            expect(await redirectChainPage.getTitle()).toContain('Last Page');
+            expect(await redirectChainPage.getUrl()).toContain(`${process.env.BASE_URL}apps/redirect/last`);
+            expect(await redirectChainPage.getInfoOfPage()).toContain("Welcome to the Last Page");
+    
+        });
 
-        expect(redirectChain.length).toBe(6);
-        expect(redirectChain[0]).toEqual(`${process.env.BASE_URL}apps/redirect/second.html`);
-        expect(redirectChain[1]).toEqual(`${process.env.BASE_URL}apps/redirect/third.html`);
-        expect(redirectChain[2]).toEqual(`${process.env.BASE_URL}apps/redirect/fourth.html`);
-        expect(redirectChain[3]).toEqual(`${process.env.BASE_URL}apps/redirect/fifth.html`);
-        expect(redirectChain[4]).toEqual(`${process.env.BASE_URL}apps/redirect/sixth.html`);
-        expect(redirectChain[5]).toEqual(`${process.env.BASE_URL}apps/redirect/last.html`);
+        await test.step('Check redirecting by array URLs', async () => {
+            expect(redirectChain.length).toBe(6);
+            expect(redirectChain[0]).toEqual(`${process.env.BASE_URL}apps/redirect/second.html`);
+            expect(redirectChain[1]).toEqual(`${process.env.BASE_URL}apps/redirect/third.html`);
+            expect(redirectChain[2]).toEqual(`${process.env.BASE_URL}apps/redirect/fourth.html`);
+            expect(redirectChain[3]).toEqual(`${process.env.BASE_URL}apps/redirect/fifth.html`);
+            expect(redirectChain[4]).toEqual(`${process.env.BASE_URL}apps/redirect/sixth.html`);
+            expect(redirectChain[5]).toEqual(`${process.env.BASE_URL}apps/redirect/last.html`);
+        });
 
-        await expect(redirectChainPage.page).toHaveScreenshot();
+        await test.step('Check redirecting by Screenshot', async () => {
+            await expect(redirectChainPage.page).toHaveScreenshot();
+        });
 
     });
 
