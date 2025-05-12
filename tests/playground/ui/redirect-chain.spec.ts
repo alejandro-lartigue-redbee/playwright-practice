@@ -18,6 +18,11 @@ test.describe('Redirect chain', () => {
 
     test('Should display correct pages after redirecting', async ({ redirectChainPage }, testInfo) => {
 
+        testInfo.annotations.push({
+            type: 'issue',
+            description: 'https://jira.miempresa.com/browse/JIRA-123',
+          });
+
         const redirectChain: string[] = [];
         // Add listen the responses event to capture the redirect chain.
         // Used this instead of 'redirectedFrom()' (https://playwright.dev/docs/api/class-request#request-redirected-from)
