@@ -10,8 +10,6 @@ import path from 'path';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-const folderReportName = `${new Date().toISOString().slice(0, 19).replace(/[:T-]/g, '')}`; // YYYYMMDDhhmmss format
-
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -27,7 +25,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
-  reporter: [['html', { outputFolder: path.join('playwright-reports', folderReportName), open: 'never' }]],
+  reporter: [['html', { outputFolder: path.join('playwright-reports', `${new Date().toISOString().slice(0, 19).replace(/[:T-]/g, '')}`), open: 'never' }]], // report in YYYYMMDDhhmmss format
 /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
