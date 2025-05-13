@@ -4,6 +4,7 @@ import { test as baseTest } from '@playwright/test';
 import { VerifyAccountPage } from '../pages/verify-account-page';
 import { TagsInputBoxPage } from '../pages/tags-input-box-page';
 import { ShadowDomPage } from '../pages/shadow-dom-page';
+import { PopUpWindowPage } from '../pages/pop-up-window-page';
 
 type PlaygroundPages = {
     verifyAccountPage: VerifyAccountPage;
@@ -11,6 +12,7 @@ type PlaygroundPages = {
     mouseHoverPage: MouseHoverPage;
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
+    popUpWindowPage: PopUpWindowPage;
 }
 
 export const test = baseTest.extend<PlaygroundPages>({
@@ -28,6 +30,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     shadowDomPage: async ({ page }, use) => {
         await use(new ShadowDomPage(page));
+    },
+    popUpWindowPage: async ({ page }, use) => {
+        await use(new PopUpWindowPage(page));
     },
 });
 
