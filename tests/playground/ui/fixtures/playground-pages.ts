@@ -9,6 +9,7 @@ import { ShadowDomPage } from '../pages/shadow-dom-page';
 import { PopUpWindowPage } from '../pages/pop-up-window-page';
 import { NewTabPage } from '../pages/new-tab-page';
 import { NewPagePage } from '../pages/new-page-page';
+import { UploadFilePage } from '../pages/upload-file-page';
 import { NestedIframePage } from '../pages/nested-iframe-page';
 
 type PlaygroundPages = {
@@ -22,6 +23,7 @@ type PlaygroundPages = {
     popUpWindowPage: PopUpWindowPage;
     newTabPage: NewTabPage;
     newPagePage: NewPagePage;
+    uploadFilePage: UploadFilePage;
     nestedIframePage: NestedIframePage;
 }
 
@@ -55,6 +57,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     popUpWindowPage: async ({ page }, use) => {
         await use(new PopUpWindowPage(page));
+    },
+    uploadFilePage: async ({ page }, use) => {
+        await use(new UploadFilePage(page));
     },
 });
 
