@@ -10,6 +10,7 @@ import { PopUpWindowPage } from '../pages/pop-up-window-page';
 import { NewTabPage } from '../pages/new-tab-page';
 import { NewPagePage } from '../pages/new-page-page';
 import { UploadFilePage } from '../pages/upload-file-page';
+import { RedirectChainPage } from '../pages/redirect-chain-page';
 import { NestedIframePage } from '../pages/nested-iframe-page';
 
 type PlaygroundPages = {
@@ -24,6 +25,7 @@ type PlaygroundPages = {
     newTabPage: NewTabPage;
     newPagePage: NewPagePage;
     uploadFilePage: UploadFilePage;
+    redirectChainPage: RedirectChainPage;
     nestedIframePage: NestedIframePage;
 }
 
@@ -61,6 +63,9 @@ export const test = baseTest.extend<PlaygroundPages>({
     uploadFilePage: async ({ page }, use) => {
         await use(new UploadFilePage(page));
     },
+    redirectChainPage: async ({ page }, use) => {
+        await use(new RedirectChainPage(page));
+    }
 });
 
 export { expect } from '@playwright/test';
