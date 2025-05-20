@@ -22,10 +22,10 @@ type PlaygroundPages = {
     tagsInputBoxPage: TagsInputBoxPage;
     shadowDomPage: ShadowDomPage;
     popUpWindowPage: PopUpWindowPage;
-    newTabPage: NewTabPage;
-    newPagePage: NewPagePage;
     uploadFilePage: UploadFilePage;
     redirectChainPage: RedirectChainPage;
+    newTabPage: NewTabPage;
+    newPagePage: NewPagePage;
     nestedIframePage: NestedIframePage;
 }
 
@@ -65,7 +65,8 @@ export const test = baseTest.extend<PlaygroundPages>({
     },
     redirectChainPage: async ({ page }, use) => {
         await use(new RedirectChainPage(page));
-    }
+
+    },
 });
 
 export { expect } from '@playwright/test';

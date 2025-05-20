@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { config } from './config/env';
+import path from 'path';
 
 /**
  * Read environment variables from file.
@@ -23,16 +24,23 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  //reporter: 'html',
+  reporter: [['html', { outputFolder: path.join('playwright-reports', `${new Date().toISOString().slice(0, 19).replace(/[:T-]/g, '')}`), open: 'never' }]], // report in YYYYMMDDhhmmss format
+/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    // Capture screenshot after each test failure.
+    screenshot: 'only-on-failure',
+    //viewport: { width: 1920, height: 1080 }
+    video: 'off',
   },
-
+  expect: {
+    toHaveScreenshot: { maxDiffPixelRatio: 0.02} // 0.02% of the image size
+  },
   /* Configure projects for major browsers */
   projects: [
     {
