@@ -11,8 +11,6 @@ import { NewTabPage } from '../pages/new-tab-page';
 import { NewPagePage } from '../pages/new-page-page';
 import { UploadFilePage } from '../pages/upload-file-page';
 import { RedirectChainPage } from '../pages/redirect-chain-page';
-import { NewTabPage } from '../pages/new-tab-page';
-import { NewPagePage } from '../pages/new-page-page';
 import { NestedIframePage } from '../pages/nested-iframe-page';
 
 type PlaygroundPages = {
