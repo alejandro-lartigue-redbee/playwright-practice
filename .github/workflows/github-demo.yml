@@ -6,7 +6,9 @@ on: [push]
 
 jobs:
   Before:
-    - run: echo "Before Job"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Before Job"
   # Job Name
   Explore-GitHub-Actions:
     # Runner
