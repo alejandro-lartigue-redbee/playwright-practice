@@ -5,6 +5,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 
 jobs:
+  Before:
+    - run: echo "Before Job"
   # Job Name
   Explore-GitHub-Actions:
     # Runner
