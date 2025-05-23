@@ -35,32 +35,32 @@ export class VerifyAccountPage  {
     }
 
     async enterFirstDigit(digit: string) {
-        await this.firstDigit.focus(); // Clear the input before entering a new digit
+        await this.firstDigit.focus(); 
         await this.firstDigit.press(digit);
     }
 
     async enterSecondDigit(digit: string) {
-        await this.secondDigit.focus(); // Clear the input before entering a new digit
+        await this.secondDigit.focus(); 
         await this.secondDigit.press(digit);
     }
 
     async enterThirdDigit(digit: string) {
-        await this.thirdDigit.focus(); // Clear the input before entering a new digit
+        await this.thirdDigit.focus(); 
         await this.thirdDigit.press(digit);
     }
 
     async enterFourthDigit(digit: string) {
-        await this.fourthDigit.focus(); // Clear the input before entering a new digit
+        await this.fourthDigit.focus(); 
         await this.fourthDigit.press(digit);
     }
 
     async enterFifthDigit(digit: string) {
-        await this.fifthDigit.focus(); // Clear the input before entering a new digit
+        await this.fifthDigit.focus(); 
         await this.fifthDigit.press(digit);
     }
 
     async enterSixthDigit(digit: string) {
-        await this.sixthDigit.focus(); // Clear the input before entering a new digit
+        await this.sixthDigit.focus(); 
         await this.sixthDigit.press(digit);
     }
 }
