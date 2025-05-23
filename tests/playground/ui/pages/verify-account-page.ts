@@ -20,7 +20,7 @@ export class VerifyAccountPage  {
         this.fifthDigit = page.locator('//input[5]');
         this.sixthDigit = page.locator('//input[6]');
         this.confirmationCodeMessage = page.locator('.info');
-        this.successMessage = page.locator('.info.success');
+        this.successMessage = page.getByText('Success)');
     }
 
     async goto() {
