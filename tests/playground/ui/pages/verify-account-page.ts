@@ -63,4 +63,5 @@ export class VerifyAccountPage  {
         await this.sixthDigit.focus(); 
         await this.sixthDigit.press(digit);
     }
+    
 }
