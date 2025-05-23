@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test:all": "npx playwright test",
-    "test:playground": "npx playwright test --project=playground",
+    "test:playground": "npx playwright test --project=playground --ignore-snapshots",
     "test:ui": "npx playwright test --ui",
     "test:report": "npx playwright show-report",
     "test:headed": "npx playwright test --headed",
