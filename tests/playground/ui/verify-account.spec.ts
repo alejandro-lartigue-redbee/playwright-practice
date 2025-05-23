@@ -14,8 +14,8 @@ test.describe('Verify Account', () => {
         await verifyAccountPage.enterFourthDigit(fourthDigit);
         await verifyAccountPage.enterFifthDigit(fifthDigit);
         await verifyAccountPage.enterSixthDigit(sixthDigit);
-        
         await expect(verifyAccountPage.successMessage).toBeVisible();
+        await expect(verifyAccountPage.successMessage).toHaveText('Success');
     });
 });
 
