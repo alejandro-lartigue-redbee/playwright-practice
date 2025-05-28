@@ -20,7 +20,7 @@ export class VerifyAccountPage  {
         this.fifthDigit = page.locator('//input[5]');
         this.sixthDigit = page.locator('//input[6]');
         this.confirmationCodeMessage = page.locator('.info');
-        this.successMessage = page.locator('.info.success');
+        this.successMessage = page.locator('.success');
     }
 
     async goto() {
@@ -35,26 +35,33 @@ export class VerifyAccountPage  {
     }
 
     async enterFirstDigit(digit: string) {
+        await this.firstDigit.focus(); 
         await this.firstDigit.press(digit);
     }
 
     async enterSecondDigit(digit: string) {
+        await this.secondDigit.focus(); 
         await this.secondDigit.press(digit);
     }
 
     async enterThirdDigit(digit: string) {
+        await this.thirdDigit.focus(); 
         await this.thirdDigit.press(digit);
     }
 
     async enterFourthDigit(digit: string) {
+        await this.fourthDigit.focus(); 
         await this.fourthDigit.press(digit);
     }
 
     async enterFifthDigit(digit: string) {
+        await this.fifthDigit.focus(); 
         await this.fifthDigit.press(digit);
     }
 
     async enterSixthDigit(digit: string) {
+        await this.sixthDigit.focus(); 
         await this.sixthDigit.press(digit);
     }
+    
 }
