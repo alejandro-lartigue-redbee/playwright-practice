@@ -28,6 +28,8 @@ jobs:
           playwright-browsers-${{ runner.os }}-
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+      env:
+        PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
     - name: Run Playwright tests
       run: npm run test:playground
     - uses: actions/upload-artifact@v4
